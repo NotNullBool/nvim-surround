@@ -263,6 +263,7 @@ M.highlight_selection = function(selection)
     end
     local namespace = vim.api.nvim_create_namespace("NvimSurround")
 
+	vim.opt.cursorline = false
     vim.highlight.range(
         0,
         namespace,
@@ -279,6 +280,7 @@ end
 M.clear_highlights = function()
     local namespace = vim.api.nvim_create_namespace("NvimSurround")
     vim.api.nvim_buf_clear_namespace(0, namespace, 0, -1)
+	vim.opt.cursorline = true
     -- Force the screen to clear the highlight immediately
     vim.cmd.redraw()
 end
